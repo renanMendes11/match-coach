@@ -1,0 +1,13 @@
+import { Schema, Types } from 'mongoose';
+import { UserSchema } from '../../user/entities/user.schema';
+import { ReviewSchema } from '../../review/entities/review.schema';
+
+export const CoachSchema: Schema = new Schema({
+  id: Types.UUID,
+  user: UserSchema,
+  reviews: [ReviewSchema],
+  trainingLocations: String, // academia, casa, praça ...
+  areaExp: [String], // fisioterapeuta, body builder coach ...
+  medicalConditionExp: [String], // pessoas com diabete, problemas fisicos ...
+  populationExp: [String], // jovens, idosos ...
+});
